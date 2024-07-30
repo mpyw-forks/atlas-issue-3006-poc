@@ -16,7 +16,8 @@ table "users" {
   primary_key {
     columns = [column.id]
   }
-  unique "users_email_key" {
+  // Before: unique "users_email_key" {
+  index "users_email_idx" {
     columns = [column.email]
   }
 }
@@ -44,7 +45,8 @@ table "posts" {
     on_delete = CASCADE
     on_update = NO_ACTION
   }
-  index "posts_user_id_key" {
+  // Before: index "posts_user_id_key" {
+  index "posts_user_id_idx" {
     columns = [column.user_id]
   }
 }
